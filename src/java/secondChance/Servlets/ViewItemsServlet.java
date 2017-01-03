@@ -21,7 +21,7 @@ import secondChance.Entities.ITEMS;
  * @author jose_
  */
 
-@WebServlet(name = "ViewItemsServlet", urlPatterns = {"/ViewItems"})
+@WebServlet(name = "ViewItemsServlet", urlPatterns = {"/ViewItems/*"})
 public class ViewItemsServlet extends HttpServlet 
 {
     @PersistenceContext(unitName = "SecondChancePU")
@@ -40,10 +40,20 @@ public class ViewItemsServlet extends HttpServlet
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
     {
-        TypedQuery<ITEMS> query = em.createNamedQuery("ITEMS.findAll", ITEMS.class);
-        List<ITEMS> li = query.getResultList();
-                
-        request.setAttribute("items", li);
+        String filterButton = request.getParameter("filterButton");
+        
+        if(filterButton != null)   // Filter button was pressed.
+        {
+            
+        }
+        
+        else
+        {
+            TypedQuery<ITEMS> query = em.createNamedQuery("ITEMS.findAll", ITEMS.class);
+            List<ITEMS> li = query.getResultList();
+
+            request.setAttribute("items", li);
+        }
         
         RequestDispatcher rd = request.getRequestDispatcher("/ViewItems.jsp");
         rd.forward(request, response);

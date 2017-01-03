@@ -6,16 +6,14 @@ noFilterButton.onclick = function() {
     window.location.reload(false);
 };
 
-var filterButton = document.getElementById("filterButton");
+var filterButton = document.getElementById("filterButton"), xhr;
 
 filterButton.onclick = function() {
     
-    var xhr;
-    
-    if(window.XMLHttpRequest)   // Navegadores actuales.
+    if(window.XMLHttpRequest)   // Current browsers.
         xhr = new XMLHttpRequest();
     
-    else if(window.ActiveXObject)   // Para versiones antiguas de IE.
+    else if(window.ActiveXObject)   // Old IE versions.
         xhr = new ActiveXObject("Microsoft.XMLHTTP");
     
     if (xhr == null)
@@ -23,7 +21,7 @@ filterButton.onclick = function() {
         
     else
     {
-        var url = "ViewItems.jsp";
+        var url = "ViewItems";
         
         xhr.onreadystatechange = getResponse;
         xhr.open("GET", url, false);
@@ -33,5 +31,10 @@ filterButton.onclick = function() {
 
 function getResponse()
 {
-    
+    if(xhr.readyState == 4 && xhr.status == 200)   // Si la petición ha finalizado correctamente.
+    {
+        // alert("You have pressed filter button.");
+        
+        
+    }
 }

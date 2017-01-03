@@ -75,7 +75,7 @@
                         <span class="head-sub-main">Lorem ipsum dolor</span> -->
                         <div class="head-last">
                             <h1>Items</h1>
-                            <button id="filterButton" type="button" class="btn btn-default btn-sm">
+                            <button id="filterButton" name="filterButton" type="button" class="btn btn-default btn-sm" value="filterButton">
                                 <span ><img src="images/filter.gif" alt="filter"></span> &nbsp; Filter 
                             </button>
                             &nbsp;
