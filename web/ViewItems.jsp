@@ -80,7 +80,8 @@
                             </button>
                             &nbsp;
                             Category:
-                            <select name="categorySelect" size="1">
+                            <select id="categorySelect" name="categorySelect" size="1">
+                                <option>ALL</option>
                                 <option>BOOKS</option>
                                 <option>COMPUTING</option>
                                 <option>FURNITURE</option>
@@ -91,7 +92,8 @@
                             </select>
                             &nbsp;
                             Price:
-                            <select name="priceSelect" size="1">
+                            <select id="priceSelect" name="priceSelect" size="1">
+                                <option>ALL</option>
                                 <option>0€ - 10€</option>
                                 <option>10€ - 20€</option>
                                 <option>20€ - 30€</option>
@@ -106,7 +108,7 @@
                             </select>
                             &nbsp;
                             Zip code:
-                            <input type="text"/>
+                            <input name="zipCode" id="zipCode" type="text"/>
                             &nbsp;
                             <input type="button" id="noFilterButton" value="No filter"/>
                             <div class="help-tip">

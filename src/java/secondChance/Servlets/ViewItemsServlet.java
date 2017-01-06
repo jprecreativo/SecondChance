@@ -1,6 +1,7 @@
 package secondChance.Servlets;
 
 import java.io.IOException;
+import java.util.Enumeration;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -40,10 +41,14 @@ public class ViewItemsServlet extends HttpServlet
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
     {
-        String filterButton = request.getParameter("filterButton");
+        Enumeration<String> param = request.getParameterNames();
         
-        if(filterButton != null)   // Filter button was pressed.
+        if(param.hasMoreElements())   // La petición contiene parámetros.
         {
+            String cat = request.getParameter(param.nextElement());
+            String price = request.getParameter(param.nextElement());
+            String zipCode = request.getParameter(param.nextElement());
+            
             
         }
         

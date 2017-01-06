@@ -21,10 +21,15 @@ filterButton.onclick = function() {
         
     else
     {
-        var url = "ViewItems";
+        var cat = document.getElementById("categorySelect");
+        var price = document.getElementById("priceSelect");
+        var zipCode = document.getElementById("zipCode");
+        var url = "ViewItems" + "?cat=" + encodeURIComponent(cat.value) + 
+                                "&price=" + encodeURIComponent(price.value) +
+                                "&zipCode=" + encodeURIComponent(zipCode.value);
         
         xhr.onreadystatechange = getResponse;
-        xhr.open("GET", url, false);
+        xhr.open("GET", url);
         xhr.send(null);
     }
 };
