@@ -8,6 +8,7 @@ import java.util.logging.Logger;
 import javax.annotation.Resource;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -42,6 +43,8 @@ public class ViewItemsServlet extends HttpServlet
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
     {
         Enumeration<String> param = request.getParameterNames();
+        TypedQuery<ITEMS> query;
+        List<ITEMS> li;
         
         if(param.hasMoreElements())   // La petición contiene parámetros.
         {
@@ -49,16 +52,14 @@ public class ViewItemsServlet extends HttpServlet
             String price = request.getParameter(param.nextElement());
             String zipCode = request.getParameter(param.nextElement());
             
-            
+            query = em.createNamedQuery("ITEMS.findByCategory", ITEMS.class).setParameter("category", cat);
         }
         
         else
-        {
-            TypedQuery<ITEMS> query = em.createNamedQuery("ITEMS.findAll", ITEMS.class);
-            List<ITEMS> li = query.getResultList();
-
-            request.setAttribute("items", li);
-        }
+            query = em.createNamedQuery("ITEMS.findAll", ITEMS.class);
+            
+        li = query.getResultList();
+        request.setAttribute("items", li);
         
         RequestDispatcher rd = request.getRequestDispatcher("/ViewItems.jsp");
         rd.forward(request, response);

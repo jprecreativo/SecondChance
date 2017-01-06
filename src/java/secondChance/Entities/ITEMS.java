@@ -12,7 +12,8 @@ import javax.validation.constraints.NotNull;
 @Entity
 @NamedQueries
 ( {
-    @NamedQuery(name="ITEMS.findAll", query="SELECT i FROM ITEMS i")
+    @NamedQuery(name="ITEMS.findAll", query="SELECT i FROM ITEMS i"),
+    @NamedQuery(name="ITEMS.findByCategory", query="SELECT i FROM ITEMS i WHERE i.category = :category")
 } )
 public class ITEMS implements Serializable {
 
