@@ -19,6 +19,27 @@ body {
     font-size:14px;
 }
 
+.forms
+{
+    margin-top: 10%;
+    margin-bottom: 5%;
+    padding-left: 36%;
+    background-color: rgba(0, 255, 41, 0.30);
+}
+
+#submitNewItem
+{
+    margin-left: 12%;
+}
+
+#formNewItemP
+{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 36px;
+    padding-top: 10px;
+    margin-left: -15px;
+}
+
 #filterButton
 {
     margin-bottom: 0px;

@@ -49,7 +49,7 @@
                             <li><a href="/SecondChance/ViewItems">VIEW ITEMS</a>
                             </li>
 
-                            <li><a href="#price-sec">NEW ITEM</a>
+                            <li><a href="/SecondChance/NewItem.html">NEW ITEM</a>
                             </li>
 
                             <li><a href="#contact-sec">FAVOURITE ITEMS</a>
