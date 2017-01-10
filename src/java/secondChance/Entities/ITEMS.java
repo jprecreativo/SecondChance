@@ -32,6 +32,17 @@ public class ITEMS implements Serializable {
     private String description;
     private int age;
 
+    public ITEMS(int ZC, String name, float price, String category, String status, String description, int age) 
+    {
+        this.ZC = ZC;
+        this.name = name;
+        this.price = price;
+        this.category = category;
+        this.status = status;
+        this.description = description;
+        this.age = age;
+    }
+    
     public Long getId() {
         return id;
     }
