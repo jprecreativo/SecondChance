@@ -38,6 +38,8 @@ function getResponse()
 {
     if(xhr.readyState == 4 && xhr.status == 200)   // Si la petición ha finalizado correctamente.
     {
+        var tableAJAX = document.getElementById("tableAJAX");
         
+        tableAJAX.innerHTML = xhr.responseText;
     }
 }

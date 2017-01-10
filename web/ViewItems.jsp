@@ -1,6 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
+
 <!DOCTYPE html>
+
 <html lang="en">
 
     <head>
@@ -115,55 +116,7 @@
                                 <p>You can filter by item category, price or zip code or not filter. Filter's fields must be valid.</p>
                             </div>
                             <br><br>
-                            <c:choose>
-                                <c:when test="${!empty requestScope.items}">
-                                    <table border='1'>
-                                        <c:forEach var="item" items="${requestScope.items}">
-                                            <tr>
-                                                <td>${item.category}</td>
-                                                <td>${item.name}</td>
-                                                <td>${item.price}</td>
-                                                <c:choose>
-                                                    <c:when test="${empty item.status}">
-                                                        <td>No specified.</td>
-                                                    </c:when>    
-                                                    <c:otherwise>
-                                                        <td>${item.status}</td>
-                                                    </c:otherwise>
-                                                </c:choose>
-                                                <c:choose>
-                                                    <c:when test="${empty item.description}">
-                                                        <td>No specified.</td>
-                                                    </c:when>    
-                                                    <c:otherwise>
-                                                        <td>${item.description}</td>
-                                                    </c:otherwise>
-                                                </c:choose>
-                                                <c:choose>
-                                                    <c:when test="${empty item.ZC}">
-                                                        <td>No specified.</td>
-                                                    </c:when>    
-                                                    <c:otherwise>
-                                                        <td>${item.ZC}</td>
-                                                    </c:otherwise>
-                                                </c:choose>
-                                                <c:choose>
-                                                    <c:when test="${empty item.age}">
-                                                        <td>No specified.</td>
-                                                    </c:when>    
-                                                    <c:otherwise>
-                                                        <td>${item.age}</td>
-                                                    </c:otherwise>
-                                                </c:choose>
-                                            </tr>
-                                        </c:forEach>
-                                    </table>
-                                </c:when>
-                                <c:otherwise>
-                                    <p>There are no items.</p>
-                                </c:otherwise>
-                            </c:choose>
-
+                            <%@ include file="/WEB-INF/ViewItems.jspf" %>
                         </div>
 
                     </div>

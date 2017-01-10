@@ -53,16 +53,20 @@ public class ViewItemsServlet extends HttpServlet
             String zipCode = request.getParameter(param.nextElement());
             
             query = em.createNamedQuery("ITEMS.findByCategory", ITEMS.class).setParameter("category", cat);
+            li = query.getResultList();
+            request.setAttribute("items", li);
+            RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/ViewItems.jsp");
+            rd.forward(request, response);
         }
         
         else
+        {
             query = em.createNamedQuery("ITEMS.findAll", ITEMS.class);
-            
-        li = query.getResultList();
-        request.setAttribute("items", li);
-        
-        RequestDispatcher rd = request.getRequestDispatcher("/ViewItems.jsp");
-        rd.forward(request, response);
+            li = query.getResultList();
+            request.setAttribute("items", li);
+            RequestDispatcher rd = request.getRequestDispatcher("/ViewItems.jsp");
+            rd.forward(request, response);
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
